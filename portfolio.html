@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kevin Siundu Wafula | Senior iOS Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #007AFF; /* iOS blue */
+            --dark: #1a1a1a;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --success: #34C759;
+            --creative: #5856D6; /* Creative purple */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f7;
+            color: #1d1d1f;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--dark);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 100px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(0, 122, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(88, 86, 214, 0.1) 0%, transparent 50%);
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--primary), var(--creative));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            color: var(--gray);
+            max-width: 800px;
+            margin: 0 auto 30px;
+            position: relative;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .btn:hover {
+            background-color: #0056cc;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 122, 255, 0.2);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            margin-left: 15px;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-github {
+            background-color: #24292e;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn-github:hover {
+            background-color: #000;
+        }
+        
+        /* Section Styling */
+        section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--creative));
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 30px auto 0;
+            font-size: 1.1rem;
+        }
+        
+        /* Creative About Section */
+        .about-section {
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            margin-top: 50px;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            min-height: 500px;
+        }
+        
+        .about-left {
+            background: linear-gradient(135deg, rgba(0, 122, 255, 0.9), rgba(88, 86, 214, 0.9));
+            color: white;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .about-left h3 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .highlight-text {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid white;
+            margin-top: 30px;
+        }
+        
+        .highlight-text p {
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        
+        .about-right {
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .about-text h4 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: var(--dark);
+        }
+        
+        .philosophy-points {
+            margin-top: 30px;
+        }
+        
+        .philosophy-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .philosophy-icon {
+            background-color: rgba(0, 122, 255, 0.1);
+            color: var(--primary);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+            font-size: 1.3rem;
+        }
+        
+        .philosophy-text h5 {
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+        
+        /* Skills Cloud */
+        .skills-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .skill-tag {
+            background-color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: default;
+        }
+        
+        .skill-tag:nth-child(odd) {
+            background: linear-gradient(to right, rgba(0, 122, 255, 0.1), rgba(0, 122, 255, 0.05));
+            border: 1px solid rgba(0, 122, 255, 0.2);
+            color: var(--primary);
+        }
+        
+        .skill-tag:nth-child(even) {
+            background: linear-gradient(to right, rgba(88, 86, 214, 0.1), rgba(88, 86, 214, 0.05));
+            border: 1px solid rgba(88, 86, 214, 0.2);
+            color: var(--creative);
+        }
+        
+        .skill-tag:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-tag.core {
+            font-size: 1.2rem;
+            padding: 15px 30px;
+        }
+        
+        /* GitHub Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+            gap: 40px;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.12);
+        }
+        
+        .project-header {
+            padding: 30px 30px 0;
+        }
+        
+        .project-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .tech-tag {
+            background-color: rgba(0, 122, 255, 0.1);
+            color: var(--primary);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .project-image {
+            height: 300px;
+            overflow: hidden;
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+        
+        .project-content {
+            padding: 0 30px;
+            flex-grow: 1;
+        }
+        
+        .project-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        
+        .project-features {
+            margin: 25px 0;
+        }
+        
+        .project-features h4 {
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .project-features ul {
+            padding-left: 20px;
+        }
+        
+        .project-features li {
+            margin-bottom: 8px;
+            color: var(--gray);
+        }
+        
+        .project-links {
+            padding: 30px;
+            display: flex;
+            gap: 15px;
+            border-top: 1px solid #eee;
+        }
+        
+        /* Experience Section */
+        .timeline {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .timeline-item {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            border-left: 5px solid var(--primary);
+            transition: transform 0.3s;
+        }
+        
+        .timeline-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .timeline-header h3 {
+            font-size: 1.5rem;
+        }
+        
+        .timeline-date {
+            background-color: rgba(0, 122, 255, 0.1);
+            color: var(--primary);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+        
+        .timeline-company {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        /* GitHub Stats */
+        .github-stats {
+            background: linear-gradient(135deg, rgba(0, 122, 255, 0.05), rgba(88, 86, 214, 0.05));
+            border-radius: 20px;
+            padding: 50px;
+            margin-top: 60px;
+            text-align: center;
+        }
+        
+        .github-stats h3 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--dark);
+        }
+        
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+        
+        .stat-label {
+            color: var(--gray);
+            font-size: 1rem;
+        }
+        
+        /* Download Section */
+        .download-section {
+            text-align: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            border-radius: 20px;
+            padding: 60px;
+        }
+        
+        .file-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .file-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            width: 200px;
+        }
+        
+        .file-item i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1100px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-left, .about-right {
+                padding: 40px;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .hero {
+                padding: 140px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 15px;
+            }
+            
+            .timeline-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .timeline-date {
+                margin-top: 10px;
+            }
+            
+            .download-section {
+                padding: 40px 20px;
+            }
+            
+            .about-left h3 {
+                font-size: 2rem;
+            }
+            
+            .project-links {
+                flex-direction: column;
+            }
+            
+            .github-stats {
+                padding: 30px 20px;
+            }
+            
+            .stats-container {
+                gap: 30px;
+            }
+            
+            .file-info {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">Kevin<span>Wafula</span></a>
+            
+            <div class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <nav class="nav-links" id="navLinks">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#experience">Experience</a>
+                <a href="#download">Documents</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>iOS Development & Open Source</h1>
+            <p>Senior iOS Engineer showcasing personal projects, technical expertise, and contributions to the developer community</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn">View Projects</a>
+                <a href="https://github.com/siundu254" target="_blank" class="btn btn-outline">
+                    <i class="fab fa-github"></i> My GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Creative About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+                <p>Blending technical precision with creative problem-solving to build iOS applications that users love</p>
+            </div>
+            
+            <div class="about-section">
+                <div class="about-content">
+                    <div class="about-left">
+                        <h3>Building Bridges Between Ideas & Implementation</h3>
+                        <div class="tagline">Transforming complex business needs into seamless digital experiences</div>
+                        
+                        <p>I approach iOS development not just as coding, but as crafting experiences. With over seven years in the trenches of mobile development, I've learned that the best applications emerge when technical excellence meets intuitive design.</p>
+                        
+                        <div class="highlight-text">
+                            <p>"My passion lies in the intersection of elegant code and meaningful user experiences."</p>
+                            <p>"I believe great software doesn't just function—it delights, empowers, and simplifies."</p>
+                        </div>
+                    </div>
+                    
+                    <div class="about-right">
+                        <div class="about-text">
+                            <h4>My Development Philosophy</h4>
+                            <p>I specialize in architecting robust iOS applications, where precision, security, and performance are non-negotiable. But beyond the technical requirements, I'm driven by creating solutions that feel effortless to use.</p>
+                            
+                            <div class="philosophy-points">
+                                <div class="philosophy-item">
+                                    <div class="philosophy-icon">
+                                        <i class="fas fa-bolt"></i>
+                                    </div>
+                                    <div class="philosophy-text">
+                                        <h5>Performance First</h5>
+                                        <p>Optimizing for smooth interactions and efficient resource use, because every millisecond matters in user perception.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="philosophy-item">
+                                    <div class="philosophy-icon">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <div class="philosophy-text">
+                                        <h5>Human-Centered Design</h5>
+                                        <p>Building with the end-user in mind, creating interfaces that feel intuitive and workflows that feel natural.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="philosophy-item">
+                                    <div class="philosophy-icon">
+                                        <i class="fas fa-layer-group"></i>
+                                    </div>
+                                    <div class="philosophy-text">
+                                        <h5>Sustainable Architecture</h5>
+                                        <p>Crafting codebases that are maintainable, scalable, and a pleasure for other developers to work with.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Technical Expertise -->
+            <div style="margin-top: 80px;">
+                <div class="section-title">
+                    <h3 style="font-size: 2rem; color: var(--dark);">Technical Expertise</h3>
+                    <p>The tools and technologies I use to bring ideas to life</p>
+                </div>
+                
+                <div class="skills-cloud">
+                    <div class="skill-tag core">Swift</div>
+                    <div class="skill-tag">Objective-C</div>
+                    <div class="skill-tag core">UIKit</div>
+                    <div class="skill-tag">SwiftUI</div>
+                    <div class="skill-tag">Combine</div>
+                    <div class="skill-tag core">MVVM-C</div>
+                    <div class="skill-tag">Clean Architecture</div>
+                    <div class="skill-tag">Core Data</div>
+                    <div class="skill-tag">Firebase</div>
+                    <div class="skill-tag core">CI/CD</div>
+                    <div class="skill-tag">Unit Testing</div>
+                    <div class="skill-tag">REST APIs</div>
+                    <div class="skill-tag">Git</div>
+                    <div class="skill-tag">Agile/Scrum</div>
+                    <div class="skill-tag">Jenkins</div>
+                    <div class="skill-tag">App Store Deployments</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Personal Projects</h2>
+                <p>Explore my open-source iOS projects showcasing modern development practices</p>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- ToDoList Project -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>ToDoList iOS App</h3>
+                        <div class="project-tech">
+                            <span class="tech-tag">Swift</span>
+                            <span class="tech-tag">SwiftUI</span>
+                            <span class="tech-tag">Core Data</span>
+                            <span class="tech-tag">MVVM</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-image">
+                        <!-- Image from the ToDoList GitHub repository -->
+                        <img src="https://raw.githubusercontent.com/siundu254/ToDoList/main/ToDoList/Assets.xcassets/AppIcon.appiconset/Icon-1024.png" 
+                             alt="ToDoList iOS App"
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'">
+                    </div>
+                    
+                    <div class="project-content">
+                        <p>A modern, intuitive task management application built with SwiftUI and Core Data. This project demonstrates clean architecture, persistent data storage, and a beautiful user interface following iOS design guidelines.</p>
+                        
+                        <div class="project-features">
+                            <h4>Key Features</h4>
+                            <ul>
+                                <li>Add, edit, and delete tasks with intuitive gestures</li>
+                                <li>Task categorization and priority levels</li>
+                                <li>Local notifications for task reminders</li>
+                                <li>Dark/Light mode support</li>
+                                <li>Persistent data storage using Core Data</li>
+                                <li>Swipe actions for quick task management</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="project-links">
+                        <a href="https://github.com/siundu254/ToDoList" target="_blank" class="btn btn-github">
+                            <i class="fab fa-github"></i> View Repository
+                        </a>
+                        <a href="https://github.com/siundu254/ToDoList/archive/refs/heads/main.zip" class="btn btn-outline">
+                            <i class="fas fa-download"></i> Download Source
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- CalculatorSwiftUIApp Project -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>CalculatorSwiftUIApp</h3>
+                        <div class="project-tech">
+                            <span class="tech-tag">SwiftUI</span>
+                            <span class="tech-tag">Combine</span>
+                            <span class="tech-tag">MVVM</span>
+                            <span class="tech-tag">Clean Architecture</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-image">
+                        <!-- Image from the CalculatorSwiftUIApp GitHub repository -->
+                        <img src="https://raw.githubusercontent.com/siundu254/CalculatorSwiftUIApp/main/CalculatorSwiftUIApp/Assets.xcassets/AppIcon.appiconset/icon_1024x1024.png" 
+                             alt="Calculator SwiftUI App"
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1587145820266-a5951ee6f620?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'">
+                    </div>
+                    
+                    <div class="project-content">
+                        <p>A fully-featured calculator application built with SwiftUI and Combine framework. This project showcases reactive programming, custom animations, and advanced SwiftUI techniques while implementing a complete calculator with scientific functions.</p>
+                        
+                        <div class="project-features">
+                            <h4>Key Features</h4>
+                            <ul>
+                                <li>Basic arithmetic operations (+, -, ×, ÷)</li>
+                                <li>Scientific functions (sin, cos, tan, log, etc.)</li>
+                                <li>Memory functions (M+, M-, MR, MC)</li>
+                                <li>Dark/Light mode with custom themes</li>
+                                <li>Smooth animations and haptic feedback</li>
+                                <li>Reactive UI updates using Combine</li>
+                                <li>Error handling and input validation</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="project-links">
+                        <a href="https://github.com/siundu254/CalculatorSwiftUIApp" target="_blank" class="btn btn-github">
+                            <i class="fab fa-github"></i> View Repository
+                        </a>
+                        <a href="https://github.com/siundu254/CalculatorSwiftUIApp/archive/refs/heads/main.zip" class="btn btn-outline">
+                            <i class="fas fa-download"></i> Download Source
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- GitHub Stats -->
+            <div class="github-stats">
+                <h3>GitHub Activity</h3>
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <span class="stat-number" id="repoCount">2</span>
+                        <span class="stat-label">Public Repositories</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">Swift</span>
+                        <span class="stat-label">Primary Language</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Open Source</span>
+                    </div>
+                </div>
+                <div style="margin-top: 30px;">
+                    <a href="https://github.com/siundu254" target="_blank" class="btn btn-outline">
+                        <i class="fab fa-github"></i> View All Projects on GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>Professional Journey</h2>
+                <p>My path through the world of iOS development and technical leadership</p>
+            </div>
+            
+            <div class="timeline">
+                <!-- Safaricom -->
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h3>Senior iOS Engineer</h3>
+                        <span class="timeline-date">Apr 2024 - Present</span>
+                    </div>
+                    <span class="timeline-company">Safaricom Kenya, Nairobi</span>
+                    <ul>
+                        <li>Architecting the next-generation One App iOS that unifies telecom and mobile money services</li>
+                        <li>Championing Agile methodologies and feature-driven development across cross-functional teams</li>
+                        <li>Mentoring team members through comprehensive code reviews and technical guidance</li>
+                        <li>Implementing robust CI/CD pipelines using Jenkins for streamlined deployment processes</li>
+                    </ul>
+                </div>
+                
+                <!-- Equity Bank (Team Lead) -->
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h3>iOS Team Lead</h3>
+                        <span class="timeline-date">Dec 2023 - Apr 2024</span>
+                    </div>
+                    <span class="timeline-company">Equity Bank Kenya, Nairobi</span>
+                    <ul>
+                        <li>Led the strategic development of a next-generation banking application from concept phase</li>
+                        <li>Orchestrated team workflows and resource allocation to maintain project momentum</li>
+                        <li>Established quality standards through systematic code review processes</li>
+                        <li>Bridged communication between development, QA, and security teams</li>
+                    </ul>
+                </div>
+                
+                <!-- Teya -->
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h3>Senior iOS Engineer</h3>
+                        <span class="timeline-date">Aug 2022 - Aug 2023</span>
+                    </div>
+                    <span class="timeline-company">Teya, United Kingdom</span>
+                    <ul>
+                        <li>Engineered cross-platform payment solutions for retail clients across iOS and Android</li>
+                        <li>Fortified application security and performance for mission-critical payment processing</li>
+                        <li>Pioneered new payment integration frameworks focusing on seamless user experiences</li>
+                        <li>Fostered collaborative development culture through constructive code reviews</li>
+                    </ul>
+                </div>
+
+                <!-- Equity Bank (iOS Engineer) -->
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h3>Senior iOS Engineer</h3>
+                        <span class="timeline-date">Dec 2019 - Aug 2022</span>
+                    </div>
+                    <span class="timeline-company">Equity Bank Kenya, Nairobi</span>
+                    <ul>
+                        <li>Planning and delivery of features based on business priorities</li>
+                        <li>Conducted thorough code reviews of pull requests from fellow iOS team members</li>
+                        <li>Provided extensive post-go-live support, addressing issues and providing solutions promptly</li>
+                    </ul>
+                </div>
+
+                <!-- Eclectics International (iOS Engineer) -->
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h3>Software Engineer</h3>
+                        <span class="timeline-date">May 2018 - Jun 2019</span>
+                    </div>
+                    <span class="timeline-company">Eclectics International Kenya, Nairobi</span>
+                    <ul>
+                        <li>Integrated the system with APIs from different banks and telecommunications companies</li>
+                        <li>Assisted with functional and business requirements processes for the mobile banking platform</li>
+                        <li>Devised and created database designs, normalization, and upgrade of legacy databases</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download">
+        <div class="container">
+            <div class="download-section">
+                <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Professional Documents</h2>
+                <p style="max-width: 700px; margin: 0 auto 30px; font-size: 1.2rem;">Download my resume and cover letter to learn more about my professional experience and qualifications.</p>
+                
+                <div class="download-buttons">
+                    <!-- DIRECT GITHUB LINKS TO YOUR PDF FILES -->
+                    <a href="https://github.com/siundu254/portfolio/raw/main/assets/downloads/Kevin_Siundu_Resume.pdf" 
+                       class="btn" 
+                       id="downloadResume"
+                       download="Kevin_Siundu_Resume.pdf">
+                        <i class="fas fa-download"></i> Download Resume
+                    </a>
+                    <a href="https://github.com/siundu254/portfolio/raw/main/assets/downloads/Kevin_Siundu_Cover_Letter.pdf" 
+                       class="btn btn-outline" 
+                       id="downloadCoverLetter"
+                       download="Kevin_Siundu_Cover_Letter.pdf">
+                        <i class="fas fa-file-alt"></i> Download Cover Letter
+                    </a>
+                </div>
+                
+                <div class="file-info">
+                    <div class="file-item">
+                        <i class="fas fa-file-pdf"></i>
+                        <h4>Resume PDF</h4>
+                        <p>Detailed professional experience</p>
+                        <small>Updated: January 2026</small>
+                    </div>
+                    <div class="file-item">
+                        <i class="fas fa-file-alt"></i>
+                        <h4>Cover Letter</h4>
+                        <p>Personal introduction letter</p>
+                        <small>Updated: January 2026</small>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 30px; color: var(--gray);">PDF documents will download directly to your device</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Let's Create Together</h2>
+                <p>Ready to discuss how we can build exceptional iOS experiences</p>
+            </div>
+            
+            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <div style="margin-bottom: 30px;">
+                    <h3 style="margin-bottom: 20px;">Get In Touch</h3>
+                    <p><i class="fas fa-envelope" style="margin-right: 10px; color: var(--primary);"></i> siundu344@gmail.com</p>
+                    <p><i class="fas fa-phone" style="margin-right: 10px; color: var(--primary);"></i> (+254) 713-528540</p>
+                    <p><i class="fas fa-map-marker-alt" style="margin-right: 10px; color: var(--primary);"></i> Nairobi, Kenya</p>
+                    <p><i class="fab fa-github" style="margin-right: 10px; color: var(--primary);"></i> github.com/siundu254</p>
+                </div>
+                
+                <div style="margin-top: 40px;">
+                    <a href="https://www.linkedin.com/in/kevin-siundu-506b2a162" class="btn" target="_blank" style="padding: 15px 40px;">
+                        <i class="fab fa-linkedin"></i> Connect on LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2 style="color: white;">Kevin Wafula</h2>
+                    <p>Senior iOS Engineer & Open Source Contributor</p>
+                </div>
+                
+                <div class="social-links">
+                    <a href="https://github.com/siundu254" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/kevin-siundu-506b2a162" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:siundu344@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 Kevin Siundu Wafula. Crafting digital experiences with precision and passion.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Animate skill tags on hover
+        document.querySelectorAll('.skill-tag').forEach(tag => {
+            tag.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.05)';
+            });
+            
+            tag.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+        
+        // Simple animation for GitHub stats
+        const repoCountElement = document.getElementById('repoCount');
+        let count = 0;
+        const targetCount = 100;
+        const duration = 1000;
+        const increment = targetCount / (duration / 16);
+        
+        const animateCount = () => {
+            if (count < targetCount) {
+                count += increment;
+                repoCountElement.textContent = Math.floor(count);
+                setTimeout(animateCount, 16);
+            } else {
+                repoCountElement.textContent = targetCount;
+            }
+        };
+        
+        // Start animation when stats come into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCount();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        observer.observe(document.querySelector('.github-stats'));
+        
+        // Track downloads for analytics (optional)
+        document.getElementById('downloadResume').addEventListener('click', function() {
+            console.log('Resume downloaded');
+            // You can add analytics here: ga('send', 'event', 'Downloads', 'Resume');
+        });
+        
+        document.getElementById('downloadCoverLetter').addEventListener('click', function() {
+            console.log('Cover letter downloaded');
+            // You can add analytics here: ga('send', 'event', 'Downloads', 'Cover Letter');
+        });
+    </script>
+</body>
+</html>
