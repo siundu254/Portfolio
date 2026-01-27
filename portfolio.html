@@ -541,6 +541,28 @@
             padding: 60px;
         }
         
+        .file-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .file-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            width: 200px;
+        }
+        
+        .file-item i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
         /* Footer */
         footer {
             background-color: var(--dark);
@@ -665,6 +687,11 @@
             .stats-container {
                 gap: 30px;
             }
+            
+            .file-info {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
@@ -682,7 +709,7 @@
                 <a href="#about">About</a>
                 <a href="#projects">Projects</a>
                 <a href="#experience">Experience</a>
-                <a href="#download">Resume</a>
+                <a href="#download">Documents</a>
                 <a href="#contact">Contact</a>
             </nav>
         </div>
@@ -900,7 +927,7 @@
                 <h3>GitHub Activity</h3>
                 <div class="stats-container">
                     <div class="stat-item">
-                        <span class="stat-number" id="repoCount">100</span>
+                        <span class="stat-number" id="repoCount">2</span>
                         <span class="stat-label">Public Repositories</span>
                     </div>
                     <div class="stat-item">
@@ -1010,17 +1037,41 @@
     <section id="download">
         <div class="container">
             <div class="download-section">
-                <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Detailed Credentials</h2>
-                <p style="max-width: 700px; margin: 0 auto 30px; font-size: 1.2rem;">Access my comprehensive professional portfolio including detailed experience, technical proficiencies, and career philosophy.</p>
+                <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Professional Documents</h2>
+                <p style="max-width: 700px; margin: 0 auto 30px; font-size: 1.2rem;">Download my resume and cover letter to learn more about my professional experience and qualifications.</p>
+                
                 <div class="download-buttons">
-                    <a href="#" class="btn" id="downloadResume">
+                    <!-- DIRECT GITHUB LINKS TO YOUR PDF FILES -->
+                    <a href="https://github.com/siundu254/portfolio/raw/main/assets/downloads/Kevin_Siundu_Resume.pdf" 
+                       class="btn" 
+                       id="downloadResume"
+                       download="Kevin_Siundu_Resume.pdf">
                         <i class="fas fa-download"></i> Download Resume
                     </a>
-                    <a href="#" class="btn btn-outline" id="downloadCoverLetter">
+                    <a href="https://github.com/siundu254/portfolio/raw/main/assets/downloads/Kevin_Siundu_Cover_Letter.pdf" 
+                       class="btn btn-outline" 
+                       id="downloadCoverLetter"
+                       download="Kevin_Siundu_Cover_Letter.pdf">
                         <i class="fas fa-file-alt"></i> Download Cover Letter
                     </a>
                 </div>
-                <p style="margin-top: 20px; color: var(--gray);">Professional documents available in PDF format</p>
+                
+                <div class="file-info">
+                    <div class="file-item">
+                        <i class="fas fa-file-pdf"></i>
+                        <h4>Resume PDF</h4>
+                        <p>Detailed professional experience</p>
+                        <small>Updated: January 2026</small>
+                    </div>
+                    <div class="file-item">
+                        <i class="fas fa-file-alt"></i>
+                        <h4>Cover Letter</h4>
+                        <p>Personal introduction letter</p>
+                        <small>Updated: January 2026</small>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 30px; color: var(--gray);">PDF documents will download directly to your device</p>
             </div>
         </div>
     </section>
@@ -1089,21 +1140,6 @@
             });
         });
         
-        // Download functionality (simulated)
-        document.getElementById('downloadResume').addEventListener('click', function(e) {
-            e.preventDefault();
-            alert('In a real implementation, this would download your Resume.pdf file.');
-            // In reality, you would link to the actual PDF file:
-            // window.location.href = 'path/to/Resume.pdf';
-        });
-        
-        document.getElementById('downloadCoverLetter').addEventListener('click', function(e) {
-            e.preventDefault();
-            alert('In a real implementation, this would download your Cover_Letter.pdf file.');
-            // In reality, you would link to the actual PDF file:
-            // window.location.href = 'path/to/Cover_Letter.pdf';
-        });
-        
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1161,6 +1197,17 @@
         }, { threshold: 0.5 });
         
         observer.observe(document.querySelector('.github-stats'));
+        
+        // Track downloads for analytics (optional)
+        document.getElementById('downloadResume').addEventListener('click', function() {
+            console.log('Resume downloaded');
+            // You can add analytics here: ga('send', 'event', 'Downloads', 'Resume');
+        });
+        
+        document.getElementById('downloadCoverLetter').addEventListener('click', function() {
+            console.log('Cover letter downloaded');
+            // You can add analytics here: ga('send', 'event', 'Downloads', 'Cover Letter');
+        });
     </script>
 </body>
 </html>
