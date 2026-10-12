@@ -1,33 +1,29 @@
-# Kevin Siundu Wafula - iOS Developer Portfolio
+# Kevin Siundu Wafula - Engineering Portfolio
 
-## 📱 About This Portfolio
-
-A modern, responsive portfolio website showcasing my expertise as a Senior iOS Engineer with 7+ years of experience. This portfolio highlights my technical skills, professional experience, and personal iOS projects with direct links to GitHub repositories.
+Personal portfolio for a senior iOS engineer and technology founder. It presents shipped mobile games from NovaLumina Studio, AI-agent products in development at Techna, open-source contributions, professional experience, and downloadable application documents.
 
 ## ✨ Features
 
-### 🎨 Modern Design
-- **Clean iOS-inspired UI** with Apple's design language
-- **Responsive layout** that works on all devices (mobile, tablet, desktop)
-- **Smooth animations** and transitions
-- **Dark/Light mode ready** color scheme
-- **Gradient accents** using iOS blue (#007AFF) and creative purple (#5856D6)
+### Design
+- Responsive single-page layout for desktop and mobile
+- Teal and warm accent palette with product artwork
+- Lightweight HTML, CSS, and JavaScript; no build step
 
 ### 📋 Content Sections
-1. **Hero Section** - Eye-catching introduction with call-to-action buttons
-2. **About Me** - Creative section with development philosophy and technical expertise
-3. **Personal Projects** - Showcasing iOS applications with GitHub links
-4. **Professional Experience** - Timeline of career progression
-5. **Documents** - Downloadable resume and cover letter
-6. **Contact** - Multiple ways to get in touch
+1. Introduction and technical skills
+2. Shipped NovaLumina iOS and Android games
+3. Clarity and ForgeLab live previews, labelled as pending production release
+4. Strix and other open-source contributions
+5. Professional experience and downloadable CV and cover letter
+6. Contact details
 
 ### 🔗 Key Functionality
-- **Direct GitHub integration** with live repository links
-- **PDF downloads** for professional documents
+- **Direct project, app-store, and GitHub links**
+- **PDF downloads** served from the portfolio itself
 - **Smooth navigation** with scroll-to-section functionality
 - **Mobile-responsive hamburger menu**
 - **Interactive elements** with hover effects
-- **Performance optimized** with lazy loading
+- **Lazy-loaded game artwork**
 
 ## 🛠️ Technologies Used
 
@@ -38,97 +34,30 @@ A modern, responsive portfolio website showcasing my expertise as a Senior iOS E
 - **Font Awesome** - Icon library for visual elements
 - **Google Fonts** - Typography using system fonts
 
-### Hosting & Integration
-- **GitHub Pages** - Free hosting and deployment
-- **GitHub API** - Direct repository integration
-- **GitHub Raw Content** - PDF document hosting
-
-### Development Tools
-- **VS Code** - Code editor
-- **Git** - Version control
-- **GitHub** - Repository hosting and deployment
+### Hosting
+The site is static and can be hosted by GitHub Pages or any static web host.
 
 ## 📁 Project Structure
 
 ```
 portfolio/
 │
-├── index.html                    # Main portfolio file
-│
-├── assets/                       # All static assets
-│   ├── downloads/                # Professional documents
-│   │   ├── Kevin_Siundu_Resume.pdf
-│   │   └── Kevin_Siundu_Cover_Letter.pdf
-│   │
-│   ├── images/                   # Project screenshots and icons
-│   │   ├── projects/
-│   │   │   ├── todo-list.png
-│   │   │   └── calculator.png
-│   │   └── profile/
-│   │
-│   └── css/                      # Stylesheets (optional)
-│
-├── README.md                     # This documentation file
-│
-└── .gitignore                    # Git ignore file
+├── index.html
+├── assets/
+│   └── downloads/
+│       ├── Kevin_Siundu_Resume.html
+│       ├── Kevin_Siundu_Resume.pdf
+│       ├── Kevin_Siundu_Cover_Letter.html
+│       └── Kevin_Siundu_Cover_Letter.pdf
+├── README.md
+└── LICENSE
 ```
 
-## 🚀 Quick Start Guide
+## Preview and publishing
 
-### Option 1: Use as Template (Recommended)
-1. **Fork this repository** to your GitHub account
-2. **Clone your fork** to your local machine:
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/portfolio.git
-   cd portfolio
-   ```
-3. **Customize the content** in `index.html`:
-   - Replace personal information
-   - Update project details
-   - Add your own images and PDFs
-4. **Upload your documents** to `assets/downloads/`
-5. **Update GitHub links** to point to your repositories
-6. **Commit and push** changes:
-   ```bash
-   git add .
-   git commit -m "Customize portfolio"
-   git push origin main
-   ```
-7. **Enable GitHub Pages** in repository settings
+Open `index.html` directly for a local preview. The portfolio has no build step. Publish the repository root with GitHub Pages or upload the files to another static host. Keep the relative PDF links and `assets/downloads/` paths intact when publishing.
 
-### Option 2: Manual Setup
-1. Create a new repository named `portfolio`
-2. Create the folder structure shown above
-3. Copy the HTML content into `index.html`
-4. Upload your PDF documents to `assets/downloads/`
-5. Enable GitHub Pages in Settings → Pages
-
-## 📄 Document Setup
-
-### Adding Your PDFs
-1. Place your resume and cover letter in `assets/downloads/`
-2. Recommended file names:
-   - `Kevin_Siundu_Resume.pdf`
-   - `Kevin_Siundu_Cover_Letter.pdf`
-3. Update the download links in the HTML:
-   ```html
-   <!-- Resume link -->
-   <a href="https://github.com/YOUR_USERNAME/portfolio/raw/main/assets/downloads/Your_Resume.pdf"
-      download="Your_Name_Resume.pdf">
-   
-   <!-- Cover letter link -->
-   <a href="https://github.com/YOUR_USERNAME/portfolio/raw/main/assets/downloads/Your_Cover_Letter.pdf"
-      download="Your_Name_Cover_Letter.pdf">
-   ```
-
-### GitHub Pages Configuration
-1. Go to your repository on GitHub
-2. Click **Settings** → **Pages**
-3. Under **Source**, select:
-   - Branch: **main**
-   - Folder: **/(root)**
-4. Click **Save**
-5. Your site will be available at: `https://YOUR_USERNAME.github.io/portfolio/`
+The document HTML files are editable sources; the matching PDFs are the files linked from the site. Update both formats when revising the CV or cover letter.
 
 ## 🔧 Customization Guide
 
@@ -167,19 +96,18 @@ Modify the timeline section:
 Edit the CSS variables at the top of the HTML:
 ```css
 :root {
-    --primary: #007AFF;    /* iOS blue */
-    --dark: #1a1a1a;       /* Dark text */
-    --light: #f8f9fa;      /* Light background */
-    --creative: #5856D6;   /* Accent purple */
+   --primary: #146b5d;    /* Teal */
+   --dark: #1b2927;       /* Dark text */
+   --light: #f2f7f4;      /* Light background */
+   --creative: #c56b45;   /* Warm accent */
 }
 ```
 
 ### 2. Update Images
-Replace image URLs in the project cards:
+Replace image URLs in the project showcase:
 ```html
-<img src="https://raw.githubusercontent.com/YOUR_USERNAME/PROJECT/main/path/to/image.png"
-     alt="Project Name"
-     onerror="this.onerror=null; this.src='FALLBACK_IMAGE_URL'">
+<img src="https://example.com/path/to/image.png"
+   alt="Project name">
 ```
 
 ### 3. Add Analytics
@@ -219,8 +147,8 @@ Add Google Analytics before the closing `</head>` tag:
 | Issue | Solution |
 |-------|----------|
 | GitHub Pages not updating | Wait 1-2 minutes for cache to clear |
-| PDFs not downloading | Check raw GitHub URL format |
-| Images not loading | Verify image paths and fallback URLs |
+| PDFs not downloading | Verify the local `assets/downloads/` paths and uploaded PDF files |
+| Images not loading | Verify image URLs and that the remote host permits public access |
 | Mobile menu not working | Check JavaScript console for errors |
 
 ### Browser Compatibility
